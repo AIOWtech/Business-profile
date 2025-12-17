@@ -236,6 +236,57 @@
             padding: 2rem;
         }
 
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .modal h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .modal p {
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .modal-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .modal-btn:hover {
+            transform: translateY(-2px);
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -364,6 +415,18 @@
   <footer> 
    <p>© 2025 AIOWtech. All rights reserved.</p> 
   </footer> 
+
+  <!-- Confirmation Modal -->
+  <div id="confirmationModal" class="modal">
+    <div class="modal-content">
+      <h3>📧 Open Gmail</h3>
+      <p>You are being redirected to your Gmail app to send a message to <strong>jeremiahhyella@gmail.com</strong></p>
+      <p>Your message details have been pre-filled. Just hit send!</p>
+      <button class="modal-btn" onclick="proceedToGmail()">Open Gmail Now</button>
+      <button class="modal-btn" onclick="closeModal()" style="background: #6c757d; margin-top: 10px;">Cancel</button>
+    </div>
+  </div>
+
   <script>
         function scrollToContact() {
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
@@ -375,8 +438,61 @@
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
-            alert(`Thank you you for contacting AIOWtech, ${name}! Your message has been received. We'll get back to you at ${email} soon.`);
-            e.target.reset();
+            // Store the form data for later use
+            sessionStorage.setItem('contactName', name);
+            sessionStorage.setItem('contactEmail', email);
+            sessionStorage.setItem('contactMessage', message);
+            
+            // Show the modal instead of immediate redirect
+            showModal();
+            
+            // Don't reset the form yet - we'll do it after confirmation
+        }
+
+        function showModal() {
+            document.getElementById('confirmationModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('confirmationModal').style.display = 'none';
+            // Reset form if user cancels
+            document.querySelector('.contact-form').reset();
+        }
+
+        function proceedToGmail() {
+            const name = sessionStorage.getItem('contactName') || '';
+            const email = sessionStorage.getItem('contactEmail') || '';
+            const message = sessionStorage.getItem('contactMessage') || '';
+            
+            // Create the mailto link with pre-filled content
+            const subject = `Message from ${name} via AIOWtech Website`;
+            const body = `Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
+            const mailtoLink = `mailto:jeremiahhyella@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Close the modal
+            closeModal();
+            
+            // Open Gmail
+            window.location.href = mailtoLink;
+            
+            // Show confirmation message after a short delay
+            setTimeout(showConfirmationMessage, 100);
+        }
+
+        function showConfirmationMessage() {
+            const name = sessionStorage.getItem('contactName') || 'there';
+            const email = sessionStorage.getItem('contactEmail') || '';
+            
+            // Reset the form
+            document.querySelector('.contact-form').reset();
+            
+            // Clear session storage
+            sessionStorage.removeItem('contactName');
+            sessionStorage.removeItem('contactEmail');
+            sessionStorage.removeItem('contactMessage');
+            
+            // Show the final confirmation message
+            alert(`Thank you for contacting AIOWtech, ${name}! Your message has been received. We'll get back to you at ${email} soon.`);
         }
 
         // Smooth scrolling for navigation links
@@ -405,6 +521,13 @@
         document.querySelectorAll('.service-card').forEach(card => {
             observer.observe(card);
         });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('confirmationModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
     </script> 
- 
 </body></html>
