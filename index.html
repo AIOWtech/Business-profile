@@ -291,6 +291,15 @@
             transform: translateY(-2px);
         }
 
+        /* Banner image styling */
+        .hero-banner {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            border-radius: 8px;
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -372,8 +381,8 @@
    <div class="about-content"> 
     <div> 
      <h2>About AIOWtech</h2> 
-     <p>We are a team of passionate technologists committed to helping businesses thrive in the digital age.AIOWtech is owned by the passionate revolutionary CHARLES HYELLAFIYA JEREMIAH. https://hyellafiya.github.io/Portfolio/
-     <p style="margin-top: 1rem;">Our approach combines technical expertise with strategic thinking to create solutions that not only meet your current needs but also position you for future success.</p> 
+     <p>We are a team of passionate technologists committed to helping businesses thrive in the digital age.AIOWtech is owned by the passionate revolutionary CHARLES HYELLAFIYA JEREMIAH. https://hyell[...]>
+     <p style="margin-top: 1rem;">Our approach combines technical expertise with strategic thinking to create solutions that not only meet your current needs but also position you for future success.<[...]> 
     </div> 
     <div class="stats"> 
      <div class="stat-item"> 
@@ -430,7 +439,12 @@
       <button class="modal-btn" onclick="closeModal()" style="background: #6c757d; margin-top: 10px;">Cancel</button>
     </div>
   </div>
-<img src="images/homepage-banner.jpg" alt="AIOWtech banner showing web development" width="600">
+
+  <!-- Banner image: updated to use the provided PNG file and responsive styling -->
+  <picture>
+    <img src="images/InShot_20251221_082743567.png" alt="AIOWtech banner showing web development" class="hero-banner" width="1200">
+  </picture>
+
   <script>
         function scrollToContact() {
             document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
@@ -471,12 +485,12 @@
             // Create the mailto link with pre-filled content
             const subject = `Message from ${name} via AIOWtech Website`;
             const body = `Name: ${name} Email: ${email} Message:${message}`;
-            const mailtoLink = `mailto: aiowtechs@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailtoLink = `mailto:aiowtechs@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
             
             // Close the modal
             closeModal();
             
-            // Open Gmail
+            // Open Gmail / default mail client
             window.location.href = mailtoLink;
             
             // Show confirmation message after a short delay
