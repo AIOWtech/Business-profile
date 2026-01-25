@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en"> 
- <head> 
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>AIOWtech</title> 
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIOWtech</title>
   <style>
         * {
             margin: 0;
@@ -40,11 +40,26 @@
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-   img {
-  max-width: 100%;
-  height: auto;
-   }
+
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .service-icon, .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
 
         nav ul {
             display: flex;
@@ -124,6 +139,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s, box-shadow 0.3s;
             cursor: pointer;
+            text-align: center;
         }
 
         .service-card:hover {
@@ -135,6 +151,14 @@
             color: #667eea;
             margin-bottom: 1rem;
             font-size: 1.5rem;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
         }
 
         .about {
@@ -157,6 +181,12 @@
             color: #667eea;
         }
 
+        .about-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
         .stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -166,6 +196,10 @@
 
         .stat-item {
             text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .stat-number {
@@ -240,6 +274,15 @@
             padding: 2rem;
         }
 
+        .team-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
         /* Modal styles */
         .modal {
             display: none;
@@ -298,6 +341,7 @@
             height: auto;
             margin: 2rem auto;
             border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         @keyframes fadeInUp {
@@ -327,107 +371,122 @@
             nav ul {
                 gap: 1rem;
             }
+
+            .logo-img {
+                width: 30px;
+                height: 30px;
+            }
         }
-    </style> 
- </head> 
- <body> 
-  <header> 
-   <nav> 
+    </style>
+ </head>
+ <body>
+  <header>
+   <nav>
     <div class="logo">
+     <img src="https://img.icons8.com/color/96/000000/artificial-intelligence.png" alt="AIOWtech Logo" class="logo-img">
      AIOWtech
-    </div> 
-    <ul> 
-     <li><a href="#home">Home</a></li> 
-     <li><a href="#services">Services</a></li> 
-     <li><a href="#about">About</a></li> 
-     <li><a href="#contact">Contact</a></li> 
-    </ul> 
-   </nav> 
-  </header> 
-  <section class="hero" id="home"> 
-   <h1>Transform Your Business Digitally</h1> 
-   <p>We deliver cutting-edge solutions that drive growth and innovation</p> <button class="cta-button" onclick="scrollToContact()">Get Started</button> 
-  </section> 
-  <section class="services" id="services"> 
-   <h2>Our Services</h2> 
-   <div class="service-grid"> 
-    <div class="service-card"> 
-     <h3>🚀 Web Development</h3> 
-     <p>Custom websites and web applications built with the latest technologies. Responsive, fast, and user-friendly solutions tailored to your needs.</p> 
-    </div> 
-    <div class="service-card"> 
-     <h3>📱 Mobile Apps</h3> 
-     <p>Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android devices.</p> 
-    </div> 
-    <div class="service-card"> 
-     <h3>☁️ Cloud Solutions</h3> 
-     <p>Scalable cloud infrastructure and migration services to modernize your business operations and reduce costs.</p> 
-    </div> 
-    <div class="service-card"> 
-     <h3>🎨 UI/UX Design</h3> 
-     <p>Beautiful, intuitive designs that engage users and enhance brand identity through thoughtful visual experiences.</p> 
-    </div> 
-    <div class="service-card"> 
-     <h3>📊 Data Analytics</h3> 
-     <p>Transform your data into actionable insights with advanced analytics and business intelligence solutions.</p> 
-    </div> 
-    <div class="service-card"> 
-     <h3>🔒 Cybersecurity</h3> 
-     <p>Protect your business with comprehensive security solutions, risk assessments, and compliance management.</p> 
-    </div> 
-   </div> 
-  </section> 
-  <section class="about" id="about"> 
-   <div class="about-content"> 
-    <div> 
-     <h2>About AIOWtech</h2> 
-     <p>We are a team of passionate technologists committed to helping businesses thrive in the digital age.AIOWtech is owned by the passionate revolutionary CHARLES HYELLAFIYA JEREMIAH. https://hyell[...]>
-     <p style="margin-top: 1rem;">Our approach combines technical expertise with strategic thinking to create solutions that not only meet your current needs but also position you for future success.<[...]> 
-    </div> 
-    <div class="stats"> 
-     <div class="stat-item"> 
-      <div class="stat-number">
-       10+
-      </div> 
-      <div>
-       Projects Completed
-      </div> 
-     </div> 
-     <div class="stat-item"> 
-      <div class="stat-number">
-       5+
-      </div> 
-      <div>
-       Happy Clients
-      </div> 
-     </div> 
-     <div class="stat-item"> 
-      <div class="stat-number">
-       2+
-      </div> 
-      <div>
-       Years Experience
-      </div> 
-     </div> 
-    </div> 
-   </div> 
-  </section> 
-  <section class="contact" id="contact"> 
-   <h2>Get In Touch</h2> 
-   <form class="contact-form" onsubmit="handleSubmit(event)"> 
-    <div class="form-group"> <label for="name">Name</label> 
-     <input type="text" id="name" required> 
-    </div> 
-    <div class="form-group"> <label for="email">Email</label> 
-     <input type="email" id="email" required> 
-    </div> 
-    <div class="form-group"> <label for="message">Message</label> <textarea id="message" rows="5" required></textarea> 
-    </div> <button type="submit" class="submit-btn">Send Message</button> 
-   </form> 
-  </section> 
-  <footer> 
-   <p>© 2025 AIOWtech. All rights reserved.</p> 
-  </footer> 
+    </div>
+    <ul>
+     <li><a href="#home">Home</a></li>
+     <li><a href="#services">Services</a></li>
+     <li><a href="#about">About</a></li>
+     <li><a href="#contact">Contact</a></li>
+    </ul>
+   </nav>
+  </header>
+  <section class="hero" id="home">
+   <h1>Transform Your Business Digitally</h1>
+   <p>We deliver cutting-edge solutions that drive growth and innovation</p>
+   <button class="cta-button" onclick="scrollToContact()">Get Started</button>
+  </section>
+
+  <!-- Banner Image -->
+  <img src="images/InShot_20251221_082743567.png" alt="AIOWtech Digital Transformation" class="hero-banner">
+
+  <section class="services" id="services">
+   <h2>Our Services</h2>
+   <div class="service-grid">
+    <div class="service-card">
+     <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Development" class="service-image">
+     <h3>🚀 Web Development</h3>
+     <p>Custom websites and web applications built with the latest technologies. Responsive, fast, and user-friendly solutions tailored to your needs.</p>
+    </div>
+    <div class="service-card">
+     <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile Apps" class="service-image">
+     <h3>📱 Mobile Apps</h3>
+     <p>Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android devices.</p>
+    </div>
+    <div class="service-card">
+     <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cloud Solutions" class="service-image">
+     <h3>☁️ Cloud Solutions</h3>
+     <p>Scalable cloud infrastructure and migration services to modernize your business operations and reduce costs.</p>
+    </div>
+    <div class="service-card">
+     <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="UI/UX Design" class="service-image">
+     <h3>🎨 UI/UX Design</h3>
+     <p>Beautiful, intuitive designs that engage users and enhance brand identity through thoughtful visual experiences.</p>
+    </div>
+    <div class="service-card">
+     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Analytics" class="service-image">
+     <h3>📊 Data Analytics</h3>
+     <p>Transform your data into actionable insights with advanced analytics and business intelligence solutions.</p>
+    </div>
+    <div class="service-card">
+     <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cybersecurity" class="service-image">
+     <h3>🔒 Cybersecurity</h3>
+     <p>Protect your business with comprehensive security solutions, risk assessments, and compliance management.</p>
+    </div>
+   </div>
+  </section>
+  <section class="about" id="about">
+   <div class="about-content">
+    <div>
+     <h2>About AIOWtech</h2>
+     <p>We are a team of passionate technologists committed to helping businesses thrive in the digital age. AIOWtech is owned by the passionate revolutionary CHARLES HYELLAFIYA JEREMIAH.</p>
+     <p style="margin-top: 1rem;">Our approach combines technical expertise with strategic thinking to create solutions that not only meet your current needs but also position you for future success.</p>
+     
+     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="AIOWtech Team" class="team-image">
+    </div>
+    <div>
+     <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About AIOWtech" class="about-image">
+     <div class="stats">
+      <div class="stat-item">
+       <div class="stat-number">10+</div>
+       <div>Projects Completed</div>
+      </div>
+      <div class="stat-item">
+       <div class="stat-number">5+</div>
+       <div>Happy Clients</div>
+      </div>
+      <div class="stat-item">
+       <div class="stat-number">2+</div>
+       <div>Years Experience</div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="contact" id="contact">
+   <h2>Get In Touch</h2>
+   <form class="contact-form" onsubmit="handleSubmit(event)">
+    <div class="form-group">
+     <label for="name">Name</label>
+     <input type="text" id="name" required>
+    </div>
+    <div class="form-group">
+     <label for="email">Email</label>
+     <input type="email" id="email" required>
+    </div>
+    <div class="form-group">
+     <label for="message">Message</label>
+     <textarea id="message" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send Message</button>
+   </form>
+  </section>
+  <footer>
+   <p>© 2025 AIOWtech. All rights reserved.</p>
+  </footer>
 
   <!-- Confirmation Modal -->
   <div id="confirmationModal" class="modal">
@@ -439,11 +498,6 @@
       <button class="modal-btn" onclick="closeModal()" style="background: #6c757d; margin-top: 10px;">Cancel</button>
     </div>
   </div>
-
-  <!-- Banner image: updated to use the provided PNG file and responsive styling -->
-  <picture>
-    <img src="images/InShot_20251221_082743567.png" alt="AIOWtech banner showing web development" class="hero-banner" width="1200">
-  </picture>
 
   <script>
         function scrollToContact() {
@@ -547,5 +601,6 @@
                 closeModal();
             }
         }
-    </script> 
-</body></html>
+    </script>
+ </body>
+ </html>
