@@ -1,643 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AIOWtech · dark blue</title>
-    <!-- Font Awesome (same as original) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bright Future Academy | Learn, Lead, Succeed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #0d47a1;
+      --secondary: #1565c0;
+      --accent: #ffca28;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --bg: #f8fafc;
+      --card: #ffffff;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            background-color: #0a0f1e;      /* deep navy base */
-            color: #e0e5f0;                  /* soft white text */
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        /* ---------- DARK BLUE THEME ---------- */
-        header {
-            background: #0b1a33;              /* rich dark blue */
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 10, 30, 0.8);
-            border-bottom: 1px solid #2a3f6e;
-        }
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
 
-        nav a {
-            color: #cfdeff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: 0.2s;
-        }
+    header {
+      background: var(--card);
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-        nav a:hover {
-            color: white;
-            text-shadow: 0 0 6px #5f8aff;
-        }
+    .nav {
+      height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: white;
-        }
+    .brand {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
 
-        .logo-img {
-            filter: brightness(1.2);
-        }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+    }
 
-        /* hero + gradient shift */
-        .hero {
-            background: #0e1a2b;              /* dark blue background */
-            background-image: radial-gradient(circle at 20% 30%, #1b3150, #0a1322);
-            color: white;
-            padding: 10px 2rem 80px;
-            text-align: center;
-            border-bottom: 1px solid #253c60;
-        }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+    }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s;
-            text-shadow: 0 2px 10px #1e3a6b;
-        }
+    nav a:hover {
+      color: var(--secondary);
+    }
 
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: #c9d9ff;
-        }
+    .hero {
+      padding: 5.5rem 0 4rem;
+      background: linear-gradient(140deg, #e3f2fd 0%, #ffffff 100%);
+    }
 
-        .cta-button {
-            background: #1f3a6b;
-            color: white;
-            padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 40px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 8px 18px #0a1a33;
-            transition: 0.2s;
-            border: 1px solid #3e5f94;
-        }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
 
-        .cta-button:hover {
-            background: #264d8c;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px #030b1a;
-        }
+    .hero h1 {
+      font-size: clamp(2rem, 4.2vw, 3.2rem);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      color: #0b3d91;
+    }
 
-        /* services section */
-        .services {
-            padding: 80px 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .hero p {
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+      max-width: 60ch;
+    }
 
-        .services h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #a9c5ff;                /* light blue */
-            text-shadow: 0 0 6px #0e264a;
-        }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      padding: 0.85rem 1.3rem;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
+    .btn:hover {
+      background: var(--secondary);
+      transform: translateY(-2px);
+    }
 
-        .service-card {
-            background: #0f1b30;            /* dark blue card */
-            padding: 2rem 1.5rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-            text-align: center;
-            border: 1px solid #203a60;
-        }
+    .hero img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 18px 35px rgba(13, 71, 161, 0.2);
+      object-fit: cover;
+      min-height: 280px;
+    }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px #050c1c;
-            border-color: #3a66b0;
-        }
+    section {
+      padding: 4rem 0;
+    }
 
-        .service-card h3 {
-            color: #bbd5ff;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: 1.2rem;
+      color: #0b3d91;
+    }
 
-        .service-card p {
-            color: #b0c6e5;
-        }
+    .intro {
+      color: var(--muted);
+      max-width: 65ch;
+      margin-bottom: 2rem;
+    }
 
-        .service-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 16px;
-            margin-bottom: 1rem;
-            border: 2px solid #263f68;
-            box-shadow: 0 8px 18px #030613;
-        }
+    .grid {
+      display: grid;
+      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
 
-        /* about */
-        .about {
-            background: #0c1424;            /* deep blue */
-            padding: 80px 2rem;
-            border-top: 1px solid #253b60;
-            border-bottom: 1px solid #1e3152;
-        }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 1.2rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 20px rgba(2, 6, 23, 0.04);
+    }
 
-        .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
+    .card h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
 
-        .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #b5ceff;
-        }
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-        .about p {
-            color: #cbd7f2;
-        }
+    .stats {
+      background: #0d47a1;
+      color: white;
+    }
 
-        .about-image {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: 0 18px 35px #020617;
-            border: 1px solid #25447a;
-        }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1rem;
+      text-align: center;
+    }
 
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      color: var(--accent);
+    }
 
-        .stat-item {
-            text-align: center;
-            padding: 1.5rem 1rem;
-            background: #132237;            /* dark stat cards */
-            border-radius: 20px;
-            box-shadow: 0 8px 18px #030812;
-            border: 1px solid #264472;
-        }
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
 
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #8bb2ff;                 /* light blue */
-        }
+    form {
+      background: var(--card);
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 1.2rem;
+      display: grid;
+      gap: 0.8rem;
+    }
 
-        .stat-item div:last-child {
-            color: #b7cef0;
-        }
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font: inherit;
+    }
 
-        /* contact */
-        .contact {
-            padding: 80px 2rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+    textarea { min-height: 130px; }
 
-        .contact h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #bed5ff;
-        }
+    button {
+      border: 0;
+      cursor: pointer;
+    }
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            background: #0f1b30;
-            padding: 2.5rem;
-            border-radius: 30px;
-            border: 1px solid #203d68;
-            box-shadow: 0 20px 30px #020814;
-        }
+    .contact-card {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 14px;
+      padding: 1.2rem;
+    }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-        }
+    footer {
+      text-align: center;
+      padding: 1.6rem 0;
+      color: #dbeafe;
+      background: #0b3d91;
+      font-size: 0.92rem;
+    }
 
-        .form-group label {
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #b8d1ff;
-        }
+    @media (max-width: 860px) {
+      .hero-grid,
+      .contact-wrap {
+        grid-template-columns: 1fr;
+      }
 
-        .form-group input,
-        .form-group textarea {
-            padding: 0.9rem;
-            background: #1a2b45;
-            border: 2px solid #263f68;
-            border-radius: 16px;
-            font-size: 1rem;
-            color: white;
-            transition: 0.2s;
-        }
+      nav ul {
+        gap: 0.75rem;
+        font-size: 0.92rem;
+      }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #4d85e0;
-            background: #1f3455;
-        }
-
-        .submit-btn {
-            background: #173159;
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 40px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.2s;
-            border: 1px solid #3263b0;
-            box-shadow: 0 6px 14px #020c1c;
-        }
-
-        .submit-btn:hover {
-            background: #1f4291;
-            transform: translateY(-2px);
-        }
-
-        /* social icons - dark blue adapt */
-        .social-contact {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .social-title {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #b6ceff;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
-
-        .social-icons a {
-            width: 52px;
-            height: 52px;
-            background: #132742;
-            color: #c7ddff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            transition: 0.3s;
-            border: 2px solid #264f8a;
-            box-shadow: 0 4px 12px #050e1c;
-        }
-
-        .social-icons a:hover {
-            background: #1f3e70;
-            color: white;
-            transform: translateY(-4px) scale(1.05);
-            border-color: #6d9eff;
-        }
-
-        /* footer */
-        footer {
-            background: #071024;
-            color: #b0c2e3;
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #243a60;
-        }
-
-        /* images & banners */
-        .hero-banner {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            margin: 2rem auto;
-            border-radius: 24px;
-            box-shadow: 0 20px 30px #030714;
-            border: 2px solid #263f68;
-        }
-
-        /* extra image after header (programmer) */
-        body > img:first-of-type {
-            width: 100%;
-            max-height: 340px;
-            object-fit: cover;
-            opacity: 0.9;
-            border-bottom: 3px solid #17315a;
-        }
-
-        /* modal dark theme */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(2, 8, 22, 0.9);
-            z-index: 1001;
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(4px);
-        }
-
-        .modal-content {
-            background: #0e1d38;
-            padding: 2.2rem;
-            border-radius: 30px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 40px #010413;
-            border: 1px solid #2f5390;
-            color: #e1ebff;
-        }
-
-        .modal h3 {
-            color: #b3d0ff;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-
-        .modal p {
-            color: #c4d5fc;
-        }
-
-        .modal-btn {
-            background: #1d3b70;
-            color: white;
-            padding: 0.8rem 2rem;
-            border: none;
-            border-radius: 40px;
-            font-size: 1rem;
-            font-weight: 600;
-            margin: 0.5rem;
-            cursor: pointer;
-            border: 1px solid #4870c0;
-            transition: 0.2s;
-        }
-
-        .modal-btn:hover {
-            background: #2651a3;
-        }
-
-        .modal-btn:last-child {
-            background: #252f44;
-            border-color: #4e5d7c;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .about-content { grid-template-columns: 1fr; }
-            .stats { grid-template-columns: 1fr; }
-            nav ul { gap: 1rem; }
-        }
-    </style>
+      .nav {
+        height: auto;
+        padding: 0.9rem 0;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="https://img.icons8.com/color/96/000000/artificial-intelligence.png" alt="AIOWtech Logo" class="logo-img">
-                AIOWtech
-            </div>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">Bright Future Academy</a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <!-- programmer banner image (preserved) -->
-    <img src="https://www.cybher.org/wp-content/uploads/2023/08/cp.jpg" alt="Computer programmer image">
-
-    <section class="hero" id="home">
-        <h1>Transform Your Business Digitally</h1>
-        <p>We deliver cutting-edge solutions that drive growth and innovation</p>
-        <button class="cta-button" onclick="scrollToContact()">Get Started</button>
-    </section>
-
-    <!-- Banner image (local placeholder, kept from original) -->
-    <img src="images/InShot_20251221_082743567.png" alt="AIOWtech Digital Transformation" class="hero-banner" onerror="this.style.display='none'">
-
-    <section class="services" id="services">
-        <h2>Our Services</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Web Development" class="service-image">
-                <h3>🚀 Web Development</h3>
-                <p>Custom websites and web applications built with the latest technologies. Responsive, fast, and user-friendly.</p>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Mobile Apps" class="service-image">
-                <h3>📱 Mobile Apps</h3>
-                <p>Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android.</p>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cloud Solutions" class="service-image">
-                <h3>☁️ Cloud Solutions</h3>
-                <p>Scalable cloud infrastructure and migration services to modernize your operations.</p>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="UI/UX Design" class="service-image">
-                <h3>🎨 UI/UX Design</h3>
-                <p>Beautiful, intuitive designs that engage users and enhance brand identity.</p>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Data Analytics" class="service-image">
-                <h3>📊 Data Analytics</h3>
-                <p>Transform your data into actionable insights with advanced analytics.</p>
-            </div>
-            <div class="service-card">
-                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cybersecurity" class="service-image">
-                <h3>🔒 Cybersecurity</h3>
-                <p>Protect your business with comprehensive security solutions and compliance.</p>
-            </div>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h1>Inspiring Every Learner to Grow with Confidence</h1>
+          <p>
+            Bright Future Academy is a student-focused school committed to academic excellence,
+            creativity, leadership, and character development from kindergarten through high school.
+          </p>
+          <a href="#admissions" class="btn">Apply for Admission</a>
         </div>
+        <img
+          src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1000&q=80"
+          alt="Students collaborating in class"
+        />
+      </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="about-content">
-            <div>
-                <h2>About AIOWtech</h2>
-                <p>We are a team of passionate technologists committed to helping businesses thrive in the digital age. </p>
-                <p>AIOWtech is owned by Charles Hyellafiya Jeremiah. A software developer and entrepreneur from Nigeria. AIOWtech is visioned to be the number tech company in Nigeria and the world.</p>
-                <p style="margin-top: 1rem;">Our approach combines technical expertise with strategic thinking to create solutions that not only meet your current needs but also position you for future success.</p>
-            </div>
-            <div>
-                <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="About AIOWtech" class="about-image">
-                <div class="stats">
-                    <div class="stat-item"><div class="stat-number">10+</div><div>Projects Completed</div></div>
-                    <div class="stat-item"><div class="stat-number">5+</div><div>Happy Clients</div></div>
-                    <div class="stat-item"><div class="stat-number">2+</div><div>Years Experience</div></div>
-                </div>
-            </div>
+    <section id="about">
+      <div class="container">
+        <h2>Why Families Choose Us</h2>
+        <p class="intro">
+          We combine strong academics with modern teaching methods, co-curricular activities,
+          and a supportive campus community where each child can thrive.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <h3>Certified Teachers</h3>
+            <p>Experienced educators who use engaging, learner-centered methods in every classroom.</p>
+          </article>
+          <article class="card">
+            <h3>Safe Campus</h3>
+            <p>A secure learning environment with active supervision and student wellbeing programs.</p>
+          </article>
+          <article class="card">
+            <h3>Modern Facilities</h3>
+            <p>Science labs, digital classrooms, library resources, and sports spaces for all learners.</p>
+          </article>
+          <article class="card">
+            <h3>Holistic Growth</h3>
+            <p>Clubs, arts, and athletics that build leadership, creativity, teamwork, and confidence.</p>
+          </article>
         </div>
+      </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2>Get In Touch</h2>
-        <form class="contact-form" onsubmit="handleSubmit(event)">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
+    <section class="stats">
+      <div class="container stats-grid">
+        <div class="stat"><strong>1,200+</strong>Students</div>
+        <div class="stat"><strong>98%</strong>Graduation Rate</div>
+        <div class="stat"><strong>65+</strong>Expert Teachers</div>
+        <div class="stat"><strong>30+</strong>Clubs & Activities</div>
+      </div>
+    </section>
+
+    <section id="programs">
+      <div class="container">
+        <h2>Academic Programs</h2>
+        <p class="intro">Our curriculum is designed to challenge and support students at every stage.</p>
+        <div class="grid">
+          <article class="card">
+            <h3>Early Years</h3>
+            <p>Play-based learning and foundational literacy, numeracy, and social skills.</p>
+          </article>
+          <article class="card">
+            <h3>Primary School</h3>
+            <p>Core academics, project learning, and creative expression to spark curiosity.</p>
+          </article>
+          <article class="card">
+            <h3>Middle School</h3>
+            <p>Subject-depth development with mentoring, STEM labs, and leadership opportunities.</p>
+          </article>
+          <article class="card">
+            <h3>High School</h3>
+            <p>College-preparatory tracks, career counseling, and exam-focused support programs.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="admissions">
+      <div class="container">
+        <h2>Admissions</h2>
+        <p class="intro">
+          Applications are open for the 2026/2027 session. Schedule a campus visit, submit your
+          application online, and meet with our admissions team.
+        </p>
+        <a class="btn" href="#contact">Book a Visit</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container contact-wrap">
+        <form>
+          <h2>Contact Us</h2>
+          <input type="text" placeholder="Parent/Guardian Name" required />
+          <input type="email" placeholder="Email Address" required />
+          <input type="tel" placeholder="Phone Number" />
+          <textarea placeholder="Tell us about your child and preferred class level" required></textarea>
+          <button class="btn" type="submit">Send Inquiry</button>
         </form>
 
-        <div class="social-contact">
-            <p class="social-title">Or reach us on</p>
-            <div class="social-icons">
-                <a href="https://wa.me/2348137101011" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="https://facebook.com/aiowtech" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://instagram.com/aiow.tech" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://x.com/aiowtech" target="_blank" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="mailto:aiowtechs@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
+        <aside class="contact-card">
+          <h3>School Information</h3>
+          <p><strong>Address:</strong> 24 Learning Avenue, Knowledge City</p>
+          <p><strong>Phone:</strong> +1 (555) 234-7788</p>
+          <p><strong>Email:</strong> admissions@brightfutureacademy.edu</p>
+          <p><strong>Hours:</strong> Mon–Fri, 8:00 AM – 4:00 PM</p>
+        </aside>
+      </div>
     </section>
+  </main>
 
-    <footer>
-        <p>© 2025 AIOWtech. All rights reserved.</p>
-    </footer>
-
-    <!-- Confirmation Modal (dark) -->
-    <div id="confirmationModal" class="modal">
-        <div class="modal-content">
-            <h3>📧 Open Gmail</h3>
-            <p>You are being redirected to your Email app to send a message to <strong>aiowtechs@gmail.com</strong></p>
-            <p>Your message details have been pre-filled. Just hit send!</p>
-            <button class="modal-btn" onclick="proceedToGmail()">Open Gmail Now</button>
-            <button class="modal-btn" onclick="closeModal()" style="background: #19273e;">Cancel</button>
-        </div>
-    </div>
-
-    <script>
-        function scrollToContact() {
-            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-        }
-
-        function handleSubmit(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            sessionStorage.setItem('contactName', name);
-            sessionStorage.setItem('contactEmail', email);
-            sessionStorage.setItem('contactMessage', message);
-            
-            showModal();
-        }
-
-        function showModal() {
-            document.getElementById('confirmationModal').style.display = 'flex';
-        }
-
-        function closeModal() {
-            document.getElementById('confirmationModal').style.display = 'none';
-            document.querySelector('.contact-form').reset();
-        }
-
-        function proceedToGmail() {
-            const name = sessionStorage.getItem('contactName') || '';
-            const email = sessionStorage.getItem('contactEmail') || '';
-            const message = sessionStorage.getItem('contactMessage') || '';
-            
-            const subject = `Message from ${name} via AIOWtech Website`;
-            const body = `Name: ${name} Email: ${email} Message:${message}`;
-            const mailtoLink = `mailto:aiowtechs@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            closeModal();
-            window.location.href = mailtoLink;
-            
-            setTimeout(showConfirmationMessage, 200);
-        }
-
-        function showConfirmationMessage() {
-            const name = sessionStorage.getItem('contactName') || 'there';
-            const email = sessionStorage.getItem('contactEmail') || '';
-            
-            document.querySelector('.contact-form').reset();
-            sessionStorage.removeItem('contactName');
-            sessionStorage.removeItem('contactEmail');
-            sessionStorage.removeItem('contactMessage');
-            
-            alert(`Thank you for contacting AIOWtech, ${name}! Your message has been received. We'll get back to you at ${email} soon.`);
-        }
-
-        // smooth scroll
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-
-        // modal outside click
-        window.onclick = function(event) {
-            const modal = document.getElementById('confirmationModal');
-            if (event.target == modal) closeModal();
-        };
-    </script>
+  <footer>
+    © 2026 Bright Future Academy. All rights reserved.
+  </footer>
 </body>
 </html>
