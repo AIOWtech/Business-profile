@@ -1,40 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="description" content="AIOWtech builds websites, mobile apps, and AI solutions in Nigeria.">
-<meta name="keywords" content="web developer Nigeria, AI, mobile apps, AIOWtech">
-<meta name="author" content="Charles Hyellafiya Jeremiah">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIOWtech · build smarter</title>
-  <!-- Font Awesome 6 (free) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- AOS (animate on scroll) -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIOWtech — Building the Technology Behind Tomorrow</title>
+    <meta name="description" content="AIOWtech builds intelligent software, digital products, AI-powered systems and modern technology experiences.">
+    <meta property="og:title" content="AIOWtech — Building the Technology Behind Tomorrow">
+    <meta property="og:description" content="AIOWtech builds intelligent software, digital products, AI-powered systems and modern technology experiences.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AIOWtech — Building the Technology Behind Tomorrow">
+    <meta name="twitter:description" content="AIOWtech builds intelligent software, digital products, AI-powered systems and modern technology experiences.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "AIOWtech",
+        "description": "Technology company building intelligent software, digital products, AI-powered systems and modern technology experiences.",
+        "url": "https://aiowtech.com",
+        "email": "aiowtechs@gmail.com",
+        "foundingDate": "2024",
+        "founder": {
+            "@type": "Person",
+            "name": "Charles Hyellafiya Jeremiah",
+            "jobTitle": "Founder & Software Developer"
+        }
     }
-
-    /* ----- DARK THEME (default) ----- */
-    body {
-      background-color: #0b0f1c;
-      color: #e2e9ff;
-      transition: background-color 0.3s, color 0.3s;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    body.light-mode {
-      background-color: #f4f7fc;
-      color: #13203a;
-    }
-    body.light-mode .service-card,
-    body.light-mode .portfolio-card,
-    body.light-mode .stat-item,
-    body.light-mode .contact-form,
+    </script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'deep-black': '#0a0a0f',
+                        'dark-navy': '#0d1117',
+                        'electric-blue': '#0066ff',
+                        'subtle-cyan': '#00d4ff',
+                        'soft-gray': '#8b949e',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: #0a0a0f; color: #ffffff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0f; }
+        ::-webkit-scrollbar-thumb { background: #1a1a2e; border-radius: 3px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0066ff; }
+        .nav-glass { background: rgba(10, 10, 15, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.06); }
+        .nav-scrolled { background: rgba(10, 10, 15, 0.85); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); }
+        #hero-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .particles-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0; }
+        .particle { position: absolute; width: 2px; height: 2px; background: rgba(0, 102, 255, 0.4); border-radius: 50%; animation: float linear infinite; }
+        @keyframes float { 0% { transform: translateY(100vh) translateX(0); opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(-10vh) translateX(100px); opacity: 0; } }
+        .grid-bg { background-image: linear-gradient(rgba(0, 102, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 102, 255, 0.03) 1px, transparent 1px); background-size: 60px 60px; }
+        .gradient-text { background: linear-gradient(135deg, #ffffff 0%, #a0c4ff 50%, #0066ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .btn-primary { position: relative; background: linear-gradient(135deg, #0066ff 0%, #0044cc 100%); padding: 14px 32px; border-radius: 8px; font-weight: 500; font-size: 15px; letter-spacing: 0.02em; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); overflow: hidden; border: 1px solid rgba(0, 102, 255, 0.5); color: white; text-decoration: none; display: inline-flex; align-items: center; }
+        .btn-primary::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent); transition: left 0.5s; }
+        .btn-primary:hover::before { left: 100%; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0, 102, 255, 0.4), 0 0 60px rgba(0, 102, 255, 0.15); border-color: rgba(0, 102, 255, 0.8); }
+        .btn-secondary { position: relative; background: transparent; padding: 14px 32px; border-radius: 8px; font-weight: 500; font-size: 15px; letter-spacing: 0.02em; border: 1px solid rgba(255, 255, 255, 0.15); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); color: white; text-decoration: none; display: inline-flex; align-items: center; }
+        .btn-secondary:hover { border-color: rgba(0, 102, 255, 0.5); background: rgba(0, 102, 255, 0.05); transform: translateY(-2px); }
+        .service-card { background: rgba(13, 17, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 36px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; overflow: hidden; backdrop-filter: blur(10px); }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 102, 255, 0.5), transparent); opacity: 0; transition: opacity 0.4s; }
+        .service-card:hover::before { opacity: 1; }
+        .service-card:hover { transform: translateY(-4px) scale(1.01); border-color: rgba(0, 102, 255, 0.3); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(0, 102, 255, 0.05); }
+        .service-card .icon-wrap { width: 48px; height: 48px; border-radius: 12px; background: rgba(0, 102, 255, 0.1); border: 1px solid rgba(0, 102, 255, 0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: all 0.3s; }
+        .service-card:hover .icon-wrap { background: rgba(0, 102, 255, 0.15); border-color: rgba(0, 102, 255, 0.4); box-shadow: 0 0 20px rgba(0, 102, 255, 0.2); }
+        .tech-node { position: absolute; width: 70px; height: 70px; border-radius: 50%; background: rgba(13, 17, 23, 0.8); border: 1px solid rgba(0, 102, 255, 0.3); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 11px; font-weight: 500; text-align: center; z-index: 10; }
+        .tech-node:hover { transform: scale(1.15); border-color: rgba(0, 102, 255, 0.8); box-shadow: 0 0 30px rgba(0, 102, 255, 0.4); background: rgba(0, 102, 255, 0.1); }
+        .tech-node.center-node { width: 100px; height: 100px; background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(0, 68, 204, 0.2)); border: 2px solid rgba(0, 102, 255, 0.6); font-size: 14px; font-weight: 700; box-shadow: 0 0 40px rgba(0, 102, 255, 0.2); }
+        .node-tooltip { position: absolute; background: rgba(10, 10, 15, 0.95); border: 1px solid rgba(0, 102, 255, 0.3); border-radius: 12px; padding: 16px 20px; max-width: 250px; font-size: 13px; line-height: 1.5; opacity: 0; pointer-events: none; transition: all 0.3s; z-index: 100; backdrop-filter: blur(10px); }
+        .node-tooltip.visible { opacity: 1; }
+        .project-card { background: rgba(13, 17, 23, 0.8); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 20px; overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
+        .project-card:hover { transform: translateY(-6px); border-color: rgba(0, 102, 255, 0.3); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5); }
+        .project-card .project-image { height: 240px; background: linear-gradient(135deg, #0d1117, #1a1a2e); position: relative; overflow: hidden; }
+        .project-card .project-content { padding: 32px; }
+        .featured-project { position: relative; min-height: 600px; display: flex; align-items: center; overflow: hidden; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.06); background: linear-gradient(135deg, rgba(13, 17, 23, 0.9), rgba(0, 102, 255, 0.05)); }
+        .featured-project::before { content: ''; position: absolute; top: -50%; right: -20%; width: 80%; height: 200%; background: radial-gradient(ellipse, rgba(0, 102, 255, 0.08) 0%, transparent 70%); pointer-events: none; }
+        .timeline-step { position: relative; padding-left: 40px; margin-bottom: 48px; }
+        .timeline-step::before { content: ''; position: absolute; left: 12px; top: 30px; width: 1px; height: calc(100% + 20px); background: linear-gradient(180deg, rgba(0, 102, 255, 0.4), rgba(0, 102, 255, 0.05)); }
+        .timeline-step:last-child::before { display: none; }
+        .timeline-step .step-number { position: absolute; left: 0; top: 0; width: 26px; height: 26px; border-radius: 50%; background: #0a0a0f; border: 2px solid rgba(0, 102, 255, 0.5); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: #0066ff; font-family: 'JetBrains Mono', monospace; }
+        .why-card { background: rgba(13, 17, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 16px; padding: 32px; transition: all 0.3s; height: 100%; }
+        .why-card:hover { border-color: rgba(0, 102, 255, 0.2); transform: translateY(-3px); }
+        .form-input { width: 100%; background: rgba(13, 17, 23, 0.6); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 10px; padding: 14px 18px; font-size: 15px; color: #ffffff; transition: all 0.3s; font-family: 'Inter', sans-serif; }
+        .form-input:focus { outline: none; border-color: rgba(0, 102, 255, 0.5); box-shadow: 0 0 20px rgba(0, 102, 255, 0.1); }
+        .form-input::placeholder { color: #4a5568; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 3rem; font-weight: 800; background: linear-gradient(135deg, #ffffff, #0066ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10, 10, 15, 0.98); backdrop-filter: blur(20px); z-index: 999; display: flex; flex-direction: column; align-items: center; justify-content: center; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .mobile-menu.open { transform: translateX(0); }
+        .hamburger { width: 28px; height: 20px; position: relative; cursor: pointer; z-index: 1000; }
+        .hamburger span { position: absolute; width: 100%; height: 2px; background: #ffffff; border-radius: 2px; transition: all 0.3s; }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 9px; }
+        .hamburger span:nth-child(3) { top: 18px; }
+        .hamburger.active span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+        .glow-orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; pointer-events: none; }
+        .custom-cursor { width: 20px; height: 20px; border: 1.5px solid rgba(0, 102, 255, 0.6); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.15s ease, opacity 0.15s ease; mix-blend-mode: difference; }
+        .custom-cursor.hover { transform: scale(2); border-color: rgba(0, 212, 255, 0.8); }
+        .footer-link { color: #8b949e; transition: color 0.2s; font-size: 14px; }
+        .footer-link:hover { color: #ffffff; }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; } }
+        .connection-lines { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+        .section-divider { width: 60px; height: 2px; background: linear-gradient(90deg, #0066ff, transparent); margin-bottom: 24px; }
+        @media (min-width: 768px) {
+            .timeline-desktop { display: flex; justify-content: space-between; position: relative; }
+            .timeline-desktop::before { content: ''; position: absolute; top: 15px; left: 5%; right: 5%; height: 1px; background: linear-gradient(90deg, transparent, rgba(0, 102, 255, 0.4), transparent); }
+            .timeline-desktop .timeline-step { padding-left: 0; margin-bottom: 0; text-align: center; flex: 1; }
+            .timeline-desktop .timeline-step::before { display: none; }
+            .timeline-desktop .timeline-step .step-number { position: relative; left: auto; top: auto; margin: 0 auto 16px; }
+        }
+    </style>
+</head>
+<body class="bg-deep-black">
+    <div class="custom-cursor hidden md:block" id="cursor"></div>
+    <nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl nav-glass rounded-full px-6 py-3 flex items-center justify-between transition-all duration-300" id="navbar">
+        <a href="#" class="font-bold text-lg tracking-tight">AIOW<span class="text-electric-blue">tech</span></a>
+        <div class="hidden md:flex items-center space-x-8">
+            <a href="#home" class="text-sm text-soft-gray hover:text-white transition-colors">Home</a>
+            <a href="#solutions" class="text-sm text-soft-gray hover:text-white transition-colors">Solutions</a>
+            <a href="#products" class="text-sm text-soft-gray hover:text-white transition-colors">Products</a>
+            <a href="#work" class="text-sm text-soft-gray hover:text-white transition-colors">Work</a>
+            <a href="#about" class="text-sm text-soft-gray hover:text-white transition-colors">About</a>
+            <a href="#contact" class="text-sm text-soft-gray hover:text-white transition-colors">Contact</a>
+        </div>
+        <a href="#contact" class="hidden md:inline-flex btn-primary text-sm">Start a Project</a>
+        <div class="hamburger md:hidden" id="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="flex flex-col items-center space-y-8">
+            <a href="#home" class="text-2xl font-light" onclick="closeMobileMenu()">Home</a>
+            <a href="#solutions" class="text-2xl font-light" onclick="closeMobileMenu()">Solutions</a>
+            <a href="#products" class="text-2xl font-light" onclick="closeMobileMenu()">Products</a>
+            <a href="#work" class="text-2xl font-light" onclick="closeMobileMenu()">Work</a>
+            <a href="#about" class="text-2xl font-light" onclick="closeMobileMenu()">About</a>
+            <a href="#contact" class="text-2xl font-light" onclick="closeMobileMenu()">Contact</a>
+            <a href="#contact" class="btn-primary mt-8" onclick="closeMobileMenu()">Start a Project</a>
+        </div>
+    </div>
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="particles-bg" id="particles"></div>
+        <div class="grid-bg absolute inset-0 opacity-50"></div>
+        <canvas id="hero-canvas"></canvas>
+        <div class="glow-orb" style="width: 400px; height: 400px; background: #0066ff; top: 20%; right: 10%;"></div>
+        <div class="glow-orb" style="width: 300px; height: 300px; background: #00d4ff; bottom: 20%; left: 5%;"></div>
+        <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+            <div class="reveal"><p class="text-sm font-mono text-electric-blue tracking-wider mb-6 uppercase">AIOWtech — Technology. Intelligence. Innovation.</p></div>
+            <div class="reveal" style="transition-delay: 0.1s;"><h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tight">Building the technology<br><span class="gradient-text">behind tomorrow.</span></h1></div>
+            <div class="reveal" style="transition-delay: 0.2s;"><p class="text-lg md:text-xl text-soft-gray max-w-2xl mx-auto mb-10 leading-relaxed">AIOWtech creates intelligent software, digital products, AI-powered systems and modern experiences designed to move businesses and ideas forward.</p></div>
+            <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-4" style="transition-delay: 0.3s;">
+                <a href="#contact" class="btn-primary flex items-center gap-2">Start a Project <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+                <a href="#work" class="btn-secondary">Explore Our Work</a>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"><div class="w-6 h-10 border border-white/20 rounded-full flex items-start justify-center p-2"><div class="w-1.5 h-3 bg-white/60 rounded-full animate-bounce"></div></div></div>
+    </section>
+    <section class="relative py-20 border-t border-white/5">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="stat-item reveal"><div class="stat-number" data-count="10">10+</div><p class="text-soft-gray text-sm mt-2">Projects</p></div>
+                <div class="stat-item reveal" style="transition-delay: 0.1s;"><div class="stat-number" data-count="5">5+</div><p class="text-soft-gray text-sm mt-2">Clients</p></div>
+                <div class="stat-item reveal" style="transition-delay: 0.2s;"><div class="stat-number" data-count="2">2+</div><p class="text-soft-gray text-sm mt-2">Years Building</p></div>
+                <div class="stat-item reveal" style="transition-delay: 0.3s;"><div class="stat-number">∞</div><p class="text-soft-gray text-sm mt-2">Ideas to Build</p></div>
+            </div>
+        </div>
+    </section>
+    <section id="solutions" class="relative py-24 md:py-32">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="section-divider mx-auto reveal"></div>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 reveal">Technology built around<br>your ambition.</h2>
+                <p class="text-soft-gray text-lg max-w-2xl mx-auto reveal">From digital products to intelligent systems, we combine engineering, design and emerging technology to create solutions built for the real world.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="service-card reveal"><div class="icon-wrap"><svg width="22" height="2    body.light-mode .contact-form,
     body.light-mode header {
       background-color: #ffffffdd;
       backdrop-filter: blur(4px);
